@@ -5,13 +5,199 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="Tests.js"></script>
+    <style>
+      .playground {
+        position: relative;
+        background-color: rgb(36, 164, 36);
+        width: 550px;
+        height: 550px;
+        float: left;
+      }
+      .mosquito {
+        position: relative;
+        height: 80px;
+      }
+    </style>
   </head>
   <body>
-    <div>
-      hello world
-      <input type="text" id="element" />
-      <button onclick="getelement()">click</button>
-    </div>
+    <!-- <div>
+      <h3 id="gameStatus"></h3>
+      <div>
+        <div class="playground">
+          <img
+            class="mosquito"
+            id="mosquito"
+            src="https://png.pngtree.com/png-vector/20210904/ourmid/pngtree-mosquito-warning-prohibited-sign-stop-and-control-anti-mosquitoes-png-image_3848155.jpg"
+            alt=""
+            onclick="hitmasquito()"
+          />
+        </div>
+        <div>
+          <h3 id="total">Total</h3>
+          <button onclick="startgame()">start</button>
+        </div>
+      </div>
+    </div> -->
+    <!-- <script>
+      let mosquito = document.getElementById("mosquito");
+      hitcount = 0;
+      let isGamestart = false;
+      const startgame = () => {
+        isGamestart = true;
+        document.getElementById("gameStatus").innerText = "Game Started";
+        let time = setInterval(() => {
+          let i = Math.floor(Math.random() * 400) + 1;
+          let j = Math.floor(Math.random() * 400) + 1;
+          mosquito.style.left = i + "px";
+          mosquito.style.top = i + "px";
+        }, 1000);
+        setTimeout(() => {
+          document.getElementById("gameStatus").innerText = "Game Finshed";
+          clearTimeout(time);
+          isGamestart = false;
+        }, 20000);
+      };
+
+      const hitmasquito = () => {
+        if (isGamestart) {
+          document.getElementById("total").innerText = hitcount;
+          hitcount++;
+        }
+      };
+    </script> -->
+
+    <!-- <div id="list"></div> -->
+    <video id="video"></video>
+    <button id="capturebtn">captute photo</button>
+    <canvas id="canvas" style="display: none"></canvas>
+    <img src="" id="image" style="display: none" />
+    <!-- <script src="Tests.js"></script> -->
+    <script>
+      const video = document.getElementById("video");
+      const capturebtn = document.getElementById("capturebtn");
+      const canvas = document.getElementById("canvas");
+      const image = document.getElementById("image");
+      const startCamera = async () => {
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia({
+            video: true,
+          });
+          video.srcObject = stream;
+          video.play();
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      capturebtn.addEventListener("click", () => {
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        const context = canvas.getContext("2d");
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+        image.src = canvas.toDataURL("image/png");
+        image.style.display = "block";
+      });
+      startCamera();
+    </script>
+    <!-- Logical Questions:
+
+1. Write program to find the nth largest number in the array
+let arr=[66,44,55,88,7,9,3,22,322]
+2. Write a program to find square root of an integer without using in-built functions
+
+3. Write a program which return 1 if product is positive, -1 if product is negative and 0 if product is 0, given array like [-1,-2,-3,-4,3,2,1].
+
+4. Write program to find high frequency character in the given string
+
+5. Write a program to generate fabonacii series
+1 1 2 3 5 8 13 .......n
+
+
+
+6. Write a program to find the sum of odd numbers from the given array
+let arr=[4,7,8,99,6,7,889,9,334,43]
+
+7.. User will enter the electricity meter units in the parent component. In child component there will be button to calculate the Bil based on following algorithm.
+up to Units<10  per unit cost =1
+up to  Units>=10 and units<=20  per unit cost =2
+and units>20  cost=3 per unit
+As soon as user will hit the calculate button on the parent control a Green Label visible with total bill amount
+
+
+
+8.  Write program to calculate the power m(n)
+
+
+
+9..  Write a program to find the factorial of given number n
+
+
+
+10. In a tennis match the result set is as below.
+Player1[6,8,12]
+Player2[9,7,3]
+Find the winner
+
+
+
+11. In parent component there is input. In the child there is increment button on click of increment button the value in input should increase by 1 When the counter value reaches 5
+the button in the Child component should be disabled and a RED block should be displayed and a new button in Child component should appear named “Reset”
+which upon click would reset the input value to 0  the red block should changed to green and reset button get hidden and the increment button enable
+
+
+
+12. Find duplicate number in array
+Given two arrays 1,2,3,4,5 and 2,3,1,0,5
+
+13. write a program to find the nth largest number from the array where n will be a given number
+let arr=[88,55,332,4,77,554,68,4455,2]
+
+
+
+14. User will enter the electricity meter units in the parent component. In child component there will be button to calculate the Bill based on following algorithm.
+Out of given unites up to Units<10 per unit cost =3
+up to Units>=10 and units<=20 per unit cost =2
+and units>20 cost=1 per unit
+As soon as user will hit the calculate button on the parent control a Green Label visible with total bill amount.
+what would be the bill if unit will be 10
+
+15. Find employees list getting salary less then the max salary in organization.
+
+16. write query to find the nth higest salary of employee in office.
+
+17. In the first 10 overs of a cricket game, the run rate was only 3.2. What should be the run rate in the remaining 40 overs to reach the target of 282 runs? -->
+
+    <!-- REACT JS INTERVIEW QUESTION -->
+
+    <!-- 
+
+
+React JS based questions
+
+Context API vs Redux.:
+Class vs function component:
+Propdril:
+Bubble event:
+Event propagation:
+Interceptor:
+Debouncing:
+Virtual DOM:
+Wildcard routing.:
+Ref and forward ref:
+User Callback:
+USerMemo:
+Userfriendly URL:
+usestate():
+Unidirectional data flow:
+synthetic events in React:
+Memory management:
+PWA:
+SSR:
+ContextAPI:
+Spead operator:
+IFE:
+Fragments:
+Currying:
+
+-->
   </body>
 </html>
