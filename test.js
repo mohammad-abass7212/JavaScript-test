@@ -111,13 +111,89 @@
 // };
 // sum(1, 8);
 
-let str = "abass dar";
-let obj = {};
-for (let repete of str) {
-  if (obj[repete]) {
-    obj[repete] += 1;
-  } else {
-    obj[repete] = 1;
-  }
-}
-console.log(obj);
+// let str = "abass dar";
+// let obj = {};
+// for (let repete of str) {
+//   if (obj[repete]) {
+//     obj[repete] += 1;
+//   } else {
+//     obj[repete] = 1;
+//   }
+// }
+// console.log(obj);
+
+// shallow copy and deep copy
+
+// let arr = [1, 2, 3, 2, [3, 45, 2], [12, 44, 5]];
+// let copyarr = JSON.parse(JSON.stringify(arr));
+// copyarr[4].push(12);
+// console.log(copyarr);
+// console.log(arr);
+// const object = {};
+// let value = "constructor";
+// if (value in object) {
+//   console.log("success");
+// } else {
+//   console.log("no success");
+// }
+
+// reverse an array without using inbuild method
+
+// let array = [1, 2, 3, 4, 5];
+
+// const reverseArr = (arr) => {
+//   if (arr.length === 0) return [];
+
+//   return [arr[arr.length - 1]].concat(reverseArr(arr.slice(0, -1)));
+// };
+
+// console.log(reverseArr(array));
+
+// checck the non repeted values in string
+
+// let str = "abassascs";
+
+// const checkNonRepeted = (str) => {
+//   let obj = {};
+
+//   for (let char of str) {
+//     obj[char] = (obj[char] || 0) + 1;
+//   }
+
+//   for (let char of str) {
+//     if (obj[char] === 1) {
+//       console.log(char);
+//     }
+//   }
+// };
+
+// checkNonRepeted(str);
+
+// let obj = { a: "Js" };
+
+// const { a, a: b, a: c } = obj;
+// console.log(a, b, c);
+
+// const parent = () => {
+//   let lang = "js";
+//   let lib = "React";
+//   function child() {
+//     console.log(lang);
+//     console.log(lib);
+//   }
+//   function sibling() {
+//     console.log("hello");
+//   }
+//   console.dir(child);
+//   console.dir(sibling);
+// };
+
+// parent();
+
+// const [a] = [1, 2, 3, 4];
+// console.log(a);
+
+// let a = NaN;
+// let b = NaN;
+// console.log(Object.is(a, b));
+// console.log(a === b);
